@@ -303,3 +303,264 @@ class Apple(Food):  # Derived Class
 food_two = Apple("Pizza", 150, 500)
 food_two.eat()
 food_two.get_from_tree()
+
+
+
+# ---------------------------------------------------------
+# -- Object Oriented Programming => Multiple Inheritance --
+# ---------------------------------------------------------
+
+class BaseOne:
+
+  def __init__(self):
+
+    print("Base One")
+
+  def func_one(self):
+
+    print("One")
+
+class BaseTwo:
+
+  def __init__(self):
+
+    print("Base Two")
+
+  def func_two(self):
+
+    print("Two")
+
+class Derived(BaseOne, BaseTwo):
+
+  pass
+
+my_var = Derived()
+
+# print(Derived.mro())
+
+print(my_var.func_one)
+print(my_var.func_two)
+
+my_var.func_one()
+my_var.func_two()
+
+class Base:
+
+  pass
+
+class DerivedOne(Base):
+
+  pass
+
+class DerivedTwo(DerivedOne):
+
+  pass
+
+
+# -------------------------------------------------
+# -- Object Oriented Programming => Polymorphism --
+# -------------------------------------------------
+
+n1 = 10
+n2 = 20
+
+print(n1 + n2)
+
+s1 = "Hello"
+s2 = "Python"
+
+print(s1 + " " + s2)
+
+print(len([1, 2, 3, 4, 5, 6]))
+print(len("Osama Elzero"))
+print(len({"Key_One": 1, "Key_Two": 2}))
+
+class A:
+
+  def do_something(self):
+
+    print("From Class A")
+
+    raise NotImplementedError("Derived Class Must Implement This Method")
+
+class B(A):
+
+  def do_something(self):
+
+    print("From Class B")
+
+class C(A):
+
+  def do_something(self):
+
+    print("From Class C")
+
+my_instance = B()
+my_instance.do_something()
+
+
+# --------------------------------------------------
+# -- Object Oriented Programming => Encapsulation --
+# --------------------------------------------------
+# Encapsulation
+# - Restrict Access To The Data Stored in Attirbutes and Methods
+# Public
+# - Every Attribute and Method That We Used So Far Is Public
+# - Attributes and Methods Can Be Modified and Run From Everywhere
+# - Inside Our Outside The Class
+# Protected
+# - Attributes and Methods Can Be Accessed From Within The Class And Sub Classes
+# - Attributes and Methods Prefixed With One Underscore _
+# Private
+# - Attributes and Methods Can Be Accessed From Within The Class Or Object Only
+# - Attributes Cannot Be Modified From Outside The Class
+# - Attributes and Methods Prefixed With Two Underscores __
+# ---------------------------------------------------------
+# - Attributes = Variables = Properties
+# -------------------------------------
+
+class Member:
+
+  def __init__(self, name):
+
+    self.name = name  # Public
+
+one = Member("Ahmed")
+print(one.name)
+one.name = "Sayed"
+print(one.name)
+
+class Member:
+
+  def __init__(self, name):
+
+    self._name = name  # Protected
+
+one = Member("Ahmed")
+print(one._name)
+one._name = "Sayed"
+print(one._name)
+
+class Member:
+
+  def __init__(self, name):
+
+    self.__name = name  # Private
+
+  def say_hello(self):
+
+    return f"Hello {self.__name}"
+
+one = Member("Ahmed")
+# print(one.__name)
+print(one.say_hello())
+print(one._Member__name)
+
+
+
+# ------------------------------------------------------
+# -- Object Oriented Programming => Getters & Setters --
+# ------------------------------------------------------
+
+class Member:
+
+  def __init__(self, name):
+
+    self.__name = name  # Private
+
+  def say_hello(self):
+
+    return f"Hello {self.__name}"
+
+  def get_name(self):  # Getter
+
+    return self.__name
+
+  def set_name(self, new_name):
+
+    self.__name = new_name
+
+one = Member("Ahmed")
+
+one._Member__name = "Sayed"
+print(one._Member__name)
+
+print(one.get_name())
+one.set_name('Abbas')
+print(one.get_name())
+
+
+# --------------------------------------------------------
+# -- Object Oriented Programming => @Property Decorator --
+# --------------------------------------------------------
+
+class Member:
+
+  def __init__(self, name, age):
+
+    self.name = name
+
+    self.age = age
+
+  def say_hello(self):
+
+    return f"Hello {self.name}"
+
+  @property
+  def age_in_days(self):
+
+    return self.age * 365
+
+one = Member("Ahmed", 40)
+
+print(one.name)
+print(one.age)
+print(one.say_hello())
+# print(one.age_in_days())
+
+print(one.age_in_days)
+
+
+# ----------------------------------------------------------------
+# -- Object Oriented Programming => ABCs => Abstract Base Class --
+# ----------------------------------------------------------------
+# - Class Called Abstract Class If it Has One or More Abstract Methods
+# - abc module in Python Provides Infrastructure for Defining Custom Abstract Base Classes.
+# - By Adding @absttractmethod Decorator on The Methods
+# - ABCMeta Class Is a Metaclass Used For Defining Abstract Base Class
+# --------------------------------------------------------------------
+
+from abc import ABCMeta, abstractmethod
+
+class Programming(metaclass=ABCMeta):
+
+  @abstractmethod
+  def has_oop(self):
+
+    pass
+
+  @abstractmethod
+  def has_name(self):
+
+    pass
+
+class Python(Programming):
+
+  def has_oop(self):
+
+    return "Yes"
+
+class Pascal(Programming):
+
+  def has_oop(self):
+
+    return "No"
+
+  def has_name(self):
+
+    return "Pascal"
+
+one = Pascal()
+
+print(one.has_oop())
+print(one.has_name())
