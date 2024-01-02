@@ -12,7 +12,7 @@
 # [9] A Function Is For All Team and All Apps
 # ----------------------------------------
 
-#ahlan si brahim mn boukhalef jkrkrkrek
+#mossa jab sa7rawiya
 def function_name():
 
   return "Hello Python From Inside Function"
