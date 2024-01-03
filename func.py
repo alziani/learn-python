@@ -11,8 +11,7 @@
 # [8] There's A Built-In Functions and User Defined Functions
 # [9] A Function Is For All Team and All Apps
 # ----------------------------------------
-
-#mmmmmmmmmm llll
+hahahhahahahah
 def function_name():
 
   return "Hello Python From Inside Function"
