@@ -1,6 +1,6 @@
 import os
 import subprocess
-#this is update
+#this is the second update 
 def update_github(username, token, repo_path):
   try:
     # Change to the repository directory
