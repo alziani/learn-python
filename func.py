@@ -42,8 +42,6 @@ github_token = "github_pat_11AXXOFIQ0GI5bp3L6TTU5_GNTMX0PrKamwO6kw78UjX4E5G0oMMX
 repository_path = r"C:\Users\a\PycharmProjects\learn-python"
 
 update_github(github_username, github_token, repository_path)
-# ----------------------------------------
-myname = "hello"
 def function_name():
 
   return "Hello Python From Inside Function"
